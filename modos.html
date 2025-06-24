@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modos de Jogo do VALORANT</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            background-color: #1C1C26;
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 19px;
+        }
+
+        .navbar {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar-left, .navbar-center {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            padding: 0 20px;
+        }
+
+        .navbar-left img {
+            height: 32px;
+        }
+
+        .navbar-left .logo {
+            height: 100px;
+            max-height: 92px;
+            width: 160px;
+            margin-left: -50px;
+            margin-right: -20px;
+        }
+
+        .navbar-left a,
+        .navbar-center a {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-left a:hover,
+        .navbar-center a:hover {
+            color: red;
+        }
+
+        header {
+            background-color: #F24162;
+            padding: 20px;
+            margin-top: 80px; /* Para compensar a navbar fixa */
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-family: "Michroma", sans-serif;
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        main {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin: 20px auto;
+            box-shadow: 0 2px 8px black;
+        }
+
+        thead, th {
+            color: white;
+            background-color: #A6384C;
+            padding: 12px 16px;
+            text-align: left;
+        }
+
+        td {
+            color: white;
+            padding: 12px 16px;
+            text-align: left;
+            background-color: #7E2231;
+        }
+
+        footer {
+            background-color: #7E2231;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .paragrafo-footer {
+            color: white;
+            font-family: "Roboto", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegação -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img class="logo" src="riot.png" alt="riot">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
+        </div>
+        <div class="navbar-center">
+  <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+        </div>
+    </div>
+
+    <!--Cabeçalho da página-->
+    <header>
+        <!--Título principal da página-->
+        <h1>MODOS DE JOGO</h1>
+    </header>
+    <!--Fim do cabeçalho-->
+    <br>
+    <br>
+    <main>
+        <!--Tópicos-->
+        <!--Tópico 1-->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>SEM CLASSIFICAÇÃO (UNRATED):</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Objetivo:</b> Mesma estrutura do competitivo, mas sem impacto no ranque.</li>
+                                <li><b>Formato:</b> 5v5, melhor de 25 rodadas (primeiro a vencer 13).</li>
+                                <li><b>Regras:</b> Compra de armas no início da rodada, plantio e desarme da spike.</li>
+                                <li><b>Duração média:</b> 30–40 minutos.</li>
+                                <li><b>Ideal para:</b> Jogar casualmente, testar agentes, praticar táticas sem pressão de ranque.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--Tópico 2-->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>COMPETITIVO (RANKED):</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Objetivo:</b> Mesmo formato do sem classificação, mas com sistema de ranqueamento.</li>
+                                <li><b>Formato:</b> 5v5, melhor de 25 rodadas (prorrogação caso empate em 12–12).</li>
+                                <li><b>Ranque:</b> Vai de Ferro até Radiante, com divisões entre os elos.</li>
+                                <li><b>Duração média:</b> 35–45 minutos.</li>
+                                <li><b>Ideal para:</b> Jogadores que querem competir e evoluir no ranking.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--Tópico 3-->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>FRENÉTICO (SWIFTPLAY):</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Objetivo:</b> Versão rápida do modo tradicional.</li>
+                                <li><b>Formato:</b> 5v5, melhor de 9 rodadas (primeiro a 5 vence).</li>
+                                <li><b>Tempo reduzido:</b> Economia simplificada, rodadas mais rápidas.</li>
+                                <li><b>Duração média:</b> 15 minutos.</li>
+                                <li><b>Ideal para:</b> Partidas rápidas com a experiência completa do modo padrão.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--Tópico 4-->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DISPUTA DA SPIKE (SPIKE RUSH):</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Objetivo:</b> Partida casual e rápida com foco na diversão.</li>
+                                <li><b>Formato:</b> 5v5, melhor de 7 rodadas (primeiro a 4 vence).</li>
+                                <li><b>Características:</b> Todos os atacantes podem plantar a spike; armas aleatórias por rodada; orbes com efeitos especiais.</li>
+                                <li><b>Duração média:</b> 8–12 minutos.</li>
+                                <li><b>Ideal para:</b> Jogar de forma descontraída ou aquecer.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--Tópico 5-->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>MATA-MATA (DEATHMATCH):</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Objetivo:</b> Treinamento de mira sem se preocupar com objetivos de equipe.</li>
+                                <li><b>Formato:</b> Até 14 jogadores, sem times fixos.</li>
+                                <li><b>Regras:</b> Ganha quem atingir 40 abates ou tiver mais kills ao fim do tempo.</li>
+                                <li><b>Reaparecimento:</b> Instantâneo com armas completas.</li>
+                                <li><b>Duração máxima:</b> 9 minutos.</li>
+                                <li><b>Ideal para:</b> Aquecimento e treino de pontaria.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--Tópico 6-->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DISPARADA (ESCALATION):</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Objetivo:</b> Progredir por níveis de armas com sua equipe.</li>
+                                <li><b>Formato:</b> 5v5 com armas pré-definidas em cada fase.</li>
+                                <li><b>Como funciona:</b> Equipe precisa de um certo número de kills para avançar para o próximo nível de arma.</li>
+                                <li><b>Vence:</b> Quem completar todos os níveis primeiro ou estiver mais avançado ao fim do tempo.</li>
+                                <li><b>Duração média:</b> 7–10 minutos.</li>
+                                <li><b>Ideal para:</b> Diversão rápida e prática com armas variadas.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--Tópico 7-->
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>MATA-MATA EM EQUIPE (TEAM DEATHMATCH):</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <ul>
+                                <li><b>Objetivo:</b> Eliminar inimigos para pontuar.</li>
+                                <li><b>Formato:</b> 5v5 em três atos (rodadas), com locais específicos para reaparecimento e compra automática de armas.</li>
+                                <li><b>Vence:</b> O time que alcançar 100 eliminações primeiro.</li>
+                                <li><b>Recursos:</b> Regeneração de vida, orbes, bônus e zonas de cura.</li>
+                                <li><b>Duração média:</b> 9–10 minutos.</li>
+                                <li><b>Ideal para:</b> Ação constante em ritmo rápido, com mais estratégia que o mata-mata livre.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <!--Fim dos tópicos-->
+    </main>
+    <br>
+    <!--Footer da página-->
+    <footer>
+        <p class="paragrafo-footer">
+            &copy Modos de Jogo do VALORANT. <br> Todos os direitos reservados.
+        </p>
+    </footer>
+</body>
+</html>
