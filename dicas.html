@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dicas de Valorant</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* PALETA VALORANT */
+        :root {
+            --valorant-red: #ff4655;
+            --valorant-dark: #0f1923;
+            --valorant-black: #111;
+            --valorant-light: #ece8e1;
+            --valorant-gold: #bd3944;
+        }
+
+        /* NAVBAR IDÊNTICA À SUA */
+        .navbar {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar-left, .navbar-center {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            padding: 0 20px;
+        }
+
+        .navbar-left img {
+            height: 32px;
+        }
+
+        .navbar-left .logo {
+            height: 100px;
+            max-height: 92px;
+            width: 160px;
+            margin-left: -50px;
+            margin-right: -20px;
+        }
+
+        .navbar-left a,
+        .navbar-center a {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-left a:hover,
+        .navbar-center a:hover {
+            color: red;
+        }
+
+        /* RESTANTE DO ESTILO (com cores do Valorant) */
+        body {
+            background-color: var(--valorant-dark);
+            color: var(--valorant-light);
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 19px;
+            margin: 0;
+            padding: 0;
+            padding-top: 80px; /* Espaço para a navbar fixa */
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: var(--valorant-red);
+            font-family: "Michroma", sans-serif;
+            font-size: 2rem;
+        }
+
+        h3 {
+            color: var(--valorant-light);
+            font-family: "Michroma", sans-serif;
+            font-size: 1.5rem;
+        }
+
+        h4 {
+            color: var(--valorant-light);
+            font-size: 1.2rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .highlight {
+            color: var(--valorant-red);
+            font-weight: bold;
+        }
+
+        .tips-section {
+            background-color: rgba(15, 25, 35, 0.7);
+            padding: 30px;
+            border-radius: 5px;
+            border-left: 5px solid var(--valorant-red);
+        }
+
+        footer {
+            background-color: var(--valorant-black);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .paragrafo-footer {
+            color: var(--valorant-light);
+            font-family: "Roboto", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR IDÊNTICA À SUA VERSÃO -->
+    <div class="navbar">
+
+    <div class="navbar-left">
+
+      <img class="logo" src="riot.png" alt="riot">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
+    </div>
+    <div class="navbar-center">
+
+      <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+
+    </div>
+
+  </div>
+    <!-- CONTEÚDO -->
+    <main class="container">
+        <section id="tips" class="tips-section">
+            <h2>Dicas Essenciais de Valorant</h2>
+            
+            <h3>Noções Básicas</h3>
+            
+            <h4>Movimentação</h4>
+            <ul>
+                <li>Evite andar atirando (<span class="highlight">o spray fica impreciso</span>)</li>
+                <li>Use <span class="highlight">strafe</span> (movimentos curtos para os lados) entre tiros</li>
+                <li>Aprenda a desviar de habilidades (como molotovs e granadas)</li>
+            </ul>
+            
+            <h4>Mira</h4>
+            <ul>
+                <li>Mantenha o <span class="highlight">crosshair na altura da cabeça</span></li>
+                <li>Treine <span class="highlight">flicks</span> e <span class="highlight">tracking</span> no The Range ou Deathmatch</li>
+                <li>Ajuste a sensibilidade (o ideal é girar 180° com um movimento confortável do mouse)</li>
+            </ul>
+            
+            <h4>Economia</h4>
+            <ul>
+                <li>No <span class="highlight">1º round</span>, compre pistola + habilidades ou armadura leve</li>
+                <li>Evite <span class="highlight">full buy</span> se o time estiver pobre (force eco ou meia compra)</li>
+                <li>Sempre ajude a equipe (compre juntos ou doe armas)</li>
+            </ul>
+            
+            <h3>Dicas Avançadas</h3>
+            
+            <h4>Comunicação</h4>
+            <ul>
+                <li>Dê callouts <span class="highlight">claros e objetivos</span> (ex: "2 B long, 1 com 30 de vida")</li>
+                <li>Não reclame ou critique excessivamente os companheiros</li>
+                <li>Ouça os calls do time e trabalhe em conjunto</li>
+            </ul>
+            
+            <h4>Agentes</h4>
+            <ul>
+                <li>Domine <span class="highlight">2-3 agentes</span> de diferentes funções</li>
+                <li>Conheça as melhores posições para usar suas habilidades</li>
+                <li>Aprenda a combinar habilidades com os agentes do seu time</li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="paragrafo-footer">
+            &copy; Dicas de Valorant. <br> Todos os direitos reservados.
+        </p>
+    </footer>
+</body>
+</html>
