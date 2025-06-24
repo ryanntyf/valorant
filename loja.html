@@ -120,6 +120,7 @@
             background: #1a1d21;
         }
 
+        /* CORREÇÕES PARALLAX */
         section.module.parallax {
             background-size: cover;
             display: flex;
@@ -129,7 +130,7 @@
             width: 100%;
             position: relative;
             overflow: hidden;
-            background-position: 50% 50%;
+            background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
@@ -140,42 +141,95 @@
             width: 100%;
             position: absolute;
             z-index: 8;
+            background: rgba(0,0,0,0.3);
         }
 
-      
+        section.module.parallax-1 {
+            background-image: url('https://pbs.twimg.com/media/GT6IiJAWgAAG3jV.jpg:large');
+            background-position: center 30%;
+        }
 
         section.module.parallax-2 {
-            background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/42a5d38c0bd9bb45010cf6fb986d46bb497fe09f-1920x1080.jpg?auto=format&fit=fill&q=80&w=1480);
+            background-image: url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/42a5d38c0bd9bb45010cf6fb986d46bb497fe09f-1920x1080.jpg?auto=format&fit=fill&q=80&w=1480');
         }
 
         section.module.parallax-3 {
-            background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/15866c94819fd81c40874dea1a9addda1fa36cbc-1920x1080.jpg);
+            background-image: url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/15866c94819fd81c40874dea1a9addda1fa36cbc-1920x1080.jpg');
         }
 
         section.module.parallax-4 {
-            background-image: url(https://noticias.maisesports.com.br/wp-content/uploads/2021/06/como-comprar-skins-valorant-1.jpg);
+            background-image: url('https://noticias.maisesports.com.br/wp-content/uploads/2021/06/como-comprar-skins-valorant-1.jpg');
         }
 
         section.module.parallax-5 {
-            background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/79d63f5c419ddb4929c6f626662e6250ef293858-1920x1080.jpg?auto=format&fit=fill&q=80&w=1480);
+            background-image: url('https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/79d63f5c419ddb4929c6f626662e6250ef293858-1920x1080.jpg?auto=format&fit=fill&q=80&w=1480');
         }
 
         section.module.parallax-6 {
-            background-image: url(https://cdn.prod.website-files.com/63f78322305db10494a5538f/668720a348de2b6d42e24c6d_skins-do-valorant.jpg);
+            background-image: url('https://cdn.prod.website-files.com/63f78322305db10494a5538f/668720a348de2b6d42e24c6d_skins-do-valorant.jpg');
         }
 
         .parallax-entre-1-e-2 {
-            background-image: url(https://updateordie.com/wp-content/uploads/2020/08/valorant-couldnt-start-how-to-fix.jpg.webp);
+            background-image: url('https://updateordie.com/wp-content/uploads/2020/08/valorant-couldnt-start-how-to-fix.jpg.webp');
         }
 
         section.module.parallax h1 {
             color: rgb(255, 254, 240);
             text-align: center;
-            font-family: 78px;
+            font-size: 78px;
             z-index: 50;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        /* HERO SECTION CORRIGIDA */
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
+        .button-wrapper {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn-play-now {
+            background-color: #00FFFF;
+            color: #1a1a1a;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            position: relative;
+            z-index: 10;
+        }
+
+        .btn-play-now:hover {
+            background-color: #00E5E5;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        /* RESTANTE DO ESTILO */
         .armas-section {
             padding: 40px;
             max-width: 1000px;
@@ -247,66 +301,13 @@
             background-color: #e6444f;
         }
 
-        .hero-section {
-            position: relative;
-            height: 600px;
-            background-image: url('https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt29d7c4f6bc077e9e/5eb26f54402b8b4d13a56656/agent-background-generic.JPG');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            color: white;
-            padding: 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5em;
-            color: white;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-            margin-bottom: 20px;
-            font-family: 'Impact', sans-serif;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .button-wrapper {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .btn-play-now {
-            background-color: #00FFFF;
-            color: #1a1a1a;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-            position: static;
-        }
-
-        .btn-play-now:hover {
-            background-color: #00E5E5;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
-        }
-
         @media (max-width: 768px) {
             body {
                 padding-top: 60px;
+            }
+            
+            section.module.parallax h1 {
+                font-size: 2em;
             }
             
             .hero-content h1 {
@@ -347,31 +348,29 @@
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
         </div>
         <div class="navbar-center">
- <a href="index.html">Home</a>
-  <a href="historia.html">História</a>
-  <a href="mecanicas.html">Mecânicas de jogo</a>
-  <a href="agentes.html">Agentes</a>
-  <a href="mapas.html">Mapas</a>
-  <a href="modos.html">Modos de jogo</a>
-  <a href="ranque.html">Sistema de ranque</a>
-  <a href="esports.html">Comunidade/eSports</a>
-  <a href="loja.html">Personalização/Loja</a>
-  <a href="dicas.html">Dicas/ferramentas</a>
+            <a href="index.html">Home</a>
+            <a href="historia.html">História</a>
+            <a href="mecanicas.html">Mecânicas de jogo</a>
+            <a href="agentes.html">Agentes</a>
+            <a href="mapas.html">Mapas</a>
+            <a href="modos.html">Modos de jogo</a>
+            <a href="ranque.html">Sistema de ranque</a>
+            <a href="esports.html">Comunidade/eSports</a>
+            <a href="loja.html">Personalização/Loja</a>
+            <a href="dicas.html">Dicas/ferramentas</a>
         </div>
     </div>
 
-    
     <div class="wrapper">
         <main>
+            <!-- SEÇÃO PARALLAX PRINCIPAL CORRIGIDA -->
             <section class="module parallax parallax-1">
-                <section class="hero-section">
-                    <div class="hero-content">
-                        <h1>PERSONALIZAÇÃO E LOJA VALORANT: EXPRESSE-SE NO JOGO!</h1>
-                        <div class="button-wrapper">
-                            <a href="https://playvalorant.com/" target="_blank" class="btn-play-now">Jogue Agora</a>
-                        </div>
+                <div class="hero-content">
+                    <h1>PERSONALIZAÇÃO E LOJA VALORANT: EXPRESSE-SE NO JOGO!</h1>
+                    <div class="button-wrapper">
+                        <a href="https://playvalorant.com/" target="_blank" class="btn-play-now">Jogue Agora</a>
                     </div>
-                </section>
+                </div>
             </section>
 
             <section class="module content">
@@ -447,7 +446,8 @@
                 </div>
             </section>
 
-            <section class="hero-section">
+            <!-- SEÇÃO FINAL CORRIGIDA -->
+            <section class="module parallax parallax-1">
                 <div class="hero-content">
                     <h1>PERSONALIZAÇÃO E LOJA VALORANT: EXPRESSE-SE NO JOGO!</h1>
                     <div class="button-wrapper">
@@ -469,18 +469,15 @@
             const currentScroll = window.pageYOffset;
             
             if (currentScroll <= 10) {
-                
                 navbar.classList.remove('hide');
                 navbar.classList.add('show');
                 return;
             }
             
             if (currentScroll > lastScroll && !navbar.classList.contains('hide')) {
-              
                 navbar.classList.remove('show');
                 navbar.classList.add('hide');
             } else if (currentScroll < lastScroll && navbar.classList.contains('hide')) {
-             
                 navbar.classList.remove('hide');
                 navbar.classList.add('show');
             }
@@ -488,7 +485,6 @@
             lastScroll = currentScroll;
         });
 
-      
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
