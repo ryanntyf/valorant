@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentes</title>
+    <style>
+        @charset "UTF-8";
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        body {
+            background-color: rgb(228, 222, 222);
+            padding-top: 80px; /* Para compensar a navbar fixa */
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        .navbar {
+          background-color: #111;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 80px;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
+          padding: 0; 
+          box-sizing: border-box; 
+        }
+
+        .navbar-left, .navbar-center {
+          display: flex; 
+          align-items: center;
+          gap: 0px; 
+          padding: 0 20px; 
+        }
+        
+        .navbar-left img {
+          height: 32px;
+        }
+        
+        .navbar-left .logo {
+          height: 100px;
+          max-height: 92px;
+          width: 160px;
+          margin-left: -50px;
+          margin-right: -20px;
+        }
+
+        .navbar-left a, 
+        .navbar-center a {
+          font-family: Arial, sans-serif; 
+          color: #fff;
+          text-decoration: none;
+          padding: 0 15px;
+          transition: color 0.3s;
+        }
+
+        .navbar-left a:hover,
+        .navbar-center a:hover {
+          color: red;
+        }
+
+        header {
+          width: 95vw;
+          height: 100vh;
+          background-color: #F24162;
+          color: aliceblue;
+          padding: 10px;
+          margin: 16px;
+          box-shadow: 5px 3px 7px rgb(122, 121, 121);
+          display: flex;
+          align-items: right;
+          gap: 10px;
+          border-radius: 10px;
+        }
+
+        .tipo {
+          background-color: #F24162;
+          color: white;
+          box-shadow: 5px 3px 7px rgb(122, 121, 121);
+          margin: 14px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .tituloimg {
+          display: flex;
+          align-items: center; 
+          gap: 10px;
+        }
+
+        .tituloimg img {
+          width: 45px;
+          height: auto;
+          margin: 10px;
+        }
+
+        .marca {
+          background-color: #F24162;
+          box-shadow: 5px 3px 7px rgb(122, 121, 121);
+          margin: 5px;
+          border-radius: 10px;
+        }
+
+        header img {
+          text-align: right;
+          width: 500px;
+          height: auto;
+        }
+
+        h1 {
+          font-family: "Anton", sans-serif;
+          font-weight: 400;
+          font-size: 90px;
+          font-style: normal;
+          color: black;
+        }
+
+        .esse {
+          margin: 5px;
+        }
+
+        h2 {
+          font-family: "Anton", sans-serif;
+          font-weight: 600;
+          font-style: normal;  
+        }
+
+        h4 {
+         font-family: "Anton", sans-serif;
+        }
+
+        .sub {
+          color: black;
+        }
+
+        .texto {
+            font-size: 23px;
+            font-family: "Inter", sans-serif;
+        }
+
+        p {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: weight;
+          font-style: normal;
+        }
+
+        li {
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: weight;
+          font-style: normal;
+          color: white;
+        }
+
+        ul {
+          margin: 12px;
+        }
+
+        .espaco {
+          margin: 10px;
+        }
+
+        .agent-container {
+          background-image: linear-gradient(to bottom, #ae3508, #372F3C);
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          box-shadow: 5px 3px 7px rgb(122, 121, 121);
+          margin: 20px;
+          border-radius: 10px;
+          padding: 10px;
+        }
+
+        .img {
+          width: 250px;
+          height: 250px;
+          object-fit: cover;
+          margin: 10px;
+          border-radius: 50%;
+        }
+
+        .brim {
+          font-size: 20px;
+          display: flex;
+          align-items: center; 
+          gap: 10px;
+        }
+
+        .Brimstone { background-image: linear-gradient(to bottom, #ae3508, #372F3C); }
+        .Phoenix { background-image: linear-gradient(to bottom, #F2C572, #BF3C1F, #260101); }
+        .Sage { background-image: linear-gradient(to bottom, #409FA2, #75CBDC, #42D5B2); }
+        .Sova { background-image: linear-gradient(to bottom, #2B3EA5, #112959); }
+        .Viper { background-image: linear-gradient(to bottom, #208C46, #244435); }
+        .Cypher { background-image: linear-gradient(to bottom, #244276, #7F7E85); }
+        .Reyna { background-image: linear-gradient(to bottom, #A63793, #403C59); }
+        .killjoy { background-image: linear-gradient(to bottom, #EEE042,#73B087); }
+        .breach { background-image: linear-gradient(to bottom, #9E451B, #3F4438); }
+        .omen { background-image: linear-gradient(to bottom, #010B40, #8487BF); }
+        .jett { background-image: linear-gradient(to bottom, #352865, #485673, #E4EDF6); }
+        .raze { background-image: linear-gradient(to bottom, #966850, #F27649); }
+        .skye { background-image: linear-gradient(to bottom, #6C8F65, #2F4835); }
+        .yoru { background-image: linear-gradient(to bottom, #030A8C, #D94F30); }
+        .astra { background-image: linear-gradient(to bottom, #BB578B, #AE8FD9, #694CCC); }
+        .kayo { background-image: linear-gradient(to bottom, #4966BF, #91AAF2); }
+        .Chamber { background-image: linear-gradient(to bottom, #0A0140, #81694F); }
+        .neon { background-image: linear-gradient(to bottom, #4992F2, #8A75DC); }
+        .fade { background-image: linear-gradient(to bottom, #242657, #64768E); }
+        .harbor { background-image: linear-gradient(to bottom, #5E6CBF, #3A5D71); }
+        .gekko { background-image: linear-gradient(to bottom, #1B6BA0, #49954A, #764A65); }
+        .deadlock { background-image: linear-gradient(to bottom, #201473, #8679D9, #A2AEC3); }
+        .iso { background-image: linear-gradient(to bottom, #6A44F2, #5D4EBF); }
+        .clove { background-image: linear-gradient(to bottom, #7B37E2, #E33AEF, #D7B355); }
+        .vyse { background-image: linear-gradient(to bottom, #460273, #4C299F); }
+        .tejo { background-image: linear-gradient(to bottom, #F2DAAC, #A6845B); }
+        .waylay { background-image: linear-gradient(to bottom, #A979D9, #8D5EF2, #A67538); }
+
+        hr {
+         height: 2px;
+          background-color: #33333378;
+          border: none;
+          width: 50%;
+          margin: 20px auto;
+        }
+
+        footer {
+          background-color: #1c1c26;
+          height: 110px;
+          width: auto;
+          color: rgba(255, 255, 255, 0.511);
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .fo {
+          font-size: 8px
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">
+            <img class="logo" src="riot.png" alt="riot">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
+        </div>
+        <div class="navbar-center">
+ <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+        </div>
+    </div>
+
+    <header>
+        <div>
+            <h1>AGENTES</h1>
+            <p class="texto">Alem das armas e munição, <strong>VALORANT</strong> inclui agentes com habilidades adaptativas, rápidas e letais, que criam oportunidades para você exibir sua mecânica de tiro. <br> Cada Agente é único, assim como os momentos de destaque de cada partida.</p>
+        </div>
+        <img src="valorant.img.png" alt="Raze e Reyna">
+    </header> 
+            
+    <main class="tipo">                    
+        <div class="tituloimg">
+            <img src="download (1).png" alt="duelistas">
+            <h2 class="sub">DUELISTAS</h2>
+        </div>
+        <ul>
+            <li class="espaco">Esse agente se destaca por sua habilidade de entrar agressivamente em combate e lidar com inimigos em primeiro contato.</li>
+        </ul>
+        <div class="tituloimg">
+            <img src="download (2).png" alt="sentinelas">
+            <h2 class="sub">SENTINELAS</h2>
+        </div>
+        <ul>
+            <li class="espaco">Esse agente segura o local, esperançosamente conseguindo uma ou duas eliminações antes da planta ou pelo menos segurando até que chegue o reforço.</li>
+        </ul>
+        <div class="tituloimg">
+            <img src="download 3.png" alt="controladores">
+            <h2 class="sub">CONTROLADORES</h2>
+        </div>
+        <ul>
+            <li class="espaco">Esse agente se destaca por sua capacidade de controlar o espaço de jogo e restringir a visão e o movimento do inimigo.</li>
+        </ul>
+        <div class="tituloimg">
+            <img src="download.png" alt="iniciadores">
+            <h2 class="sub">INICIADORES</h2>
+        </div>
+        <ul>
+            <li class="espaco">Esse agente se destaca em preparar o terreno para a entrada do seu time em um site ou para defender um ponto, geralmente com habilades que cegam, atordoam ou relevam informações sobre a posição dos inimigos.</li>
+        </ul>
+    </main>
+    
+    <main>
+        <div class="marca">
+            <h1 class="esse">SOBRE CADA AGENTE:</h1>
+        </div>
+        
+        <div class="agent-container Brimstone">
+            <img src="agentes/Brimstone.png" class="img" alt="Brimstone">
+            <div>
+                <h2 class="brim"><strong>BRIMSTONE</strong></h2>
+                <h4>Controlador</h4>
+                <ul>
+                    <li>Vindo diretamente dos EUA, o arsenal orbital do Brimstone garante que o esquadrão dele sempre esteja em vantagem. Sua capacidade de oferecer utilitários com precisão e segurança faz dele um comandante inigualável na linha de frente.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container Phoenix">
+            <img src="agentes/Phoenix.png" class="img" alt="Phoenix">
+            <div>
+                <h2 class="brim"><strong>PHOENIX</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Chegando com tudo diretamente do Reino Unido, o poder estelar do Phoenix reluz em seu estilo de luta, incendiano o campo de batalha com luz e estilo. Tendo ajuda ou não, ele entra na luta como e quando achar que deve.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container Sage">
+            <img src="agentes/Sage.png" class="img" alt="Sage">
+            <div>
+                <h2 class="brim"><strong>SAGE</strong></h2>
+                <h4>Sentinela</h4>
+                <ul>
+                    <li>Como uma verdadeira fortaleza chinesa, Sage traz segurança para si mesma e para a equipe aonde quer que vá. Capaz de reviver aliados e rechaçar investidas agressivas, ela oferece um centro de calmaria em meio ao caos da batalha.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container Sova">
+            <img src="agentes/Sova.png" class="img" alt="Sova">
+            <div>
+                <h2 class="brim"><strong>SOVA</strong></h2>
+                <h4>Iniciador</h4>
+                <ul>
+                    <li>Nascido sob o eterno inverno das tundras russas. Sova rastreia, encontra e elimina inimigos com eficiência e precisão implacáveis. Seu arco personalizado e suas habilidades inigualáveis de reconhecimento garantem que nenhuma presa escape.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container Viper">
+            <img src="agentes/viper.png" class="img" alt="Viper">
+            <div>
+                <h2 class="brim"><strong>VIPER</strong></h2>
+                <h4>Controlador</h4>
+                <ul>
+                    <li>Viper, a química dos Estados Unidos, emprega uma variedade de depósitos químicos venenosos para controlar o campo de batalha e prejudicar a visão do inimigo. Se as toxinas não matarem a presa, seus jogos mentais certamente o farão.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container Cypher">
+            <img src="agentes/Cypher.png" class="img" alt="Cypher">
+            <div>
+                <h2 class="brim"><strong>CYPHER</strong></h2>
+                <h4>Sentinela</h4>
+                <ul>
+                    <li>Cypher, um vendedor de informações do Marrocos, é uma verdadeira rede de vigilância de um homem só que fica de olho em cada movimento dos inimigos. Nenhum segredo está salvo. Nenhuma manobra passa despercebida. Cypher está sempre vigiando.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container Reyna">
+            <img src="agentes/Reyna.png" class="img" alt="Reyna">
+            <div>
+                <h2 class="brim"><strong>REYNA</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Criada no coração do México, Reyna domina o combate individual, destacando-se a cada abate efetuado. Sua capacidade só é limitada por sua própria perícia, tornando-a bastante dependente de desempenho.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container killjoy">
+            <img src="agentes/Killjoy.png" class="img" alt="Killjoy">
+            <div>
+                <h2 class="brim"><strong>KILLJOY</strong></h2>
+                <h4>Sentinela</h4>
+                <ul>
+                    <li>Killjoy, uma alemã genial, defende posições-chave no campo de batalha facilmente com seu arsenal de invenções. Se dano causado por seu equipamento não der cabo dos inimigos, os efeitos negativos de seus queridos robôs darão conta do recado.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container breach">
+            <img src="agentes/Breach.png" class="img" alt="Breach">
+            <div>
+                <h2 class="brim"><strong>BREACH</strong></h2>
+                <h4>Iniciador</h4>
+                <ul>
+                    <li>Breach, o homem-biônico sueco, dispara poderosos jatos cinéticos para forçar a abertura de um caminho pelo território inimigo. O dano e a interrupção que ele causa garantem que nenhuma luta seja justa.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container omen">
+            <img src="agentes/Omen.png" class="img" alt="Omen">
+            <div>
+                <h2 class="brim"><strong>OMEN</strong></h2>
+                <h4>Controlador</h4>
+                <ul>
+                    <li>Omen, uma lembrança fantasmagórica, caça nas sombras. Ele cega os inimigos, teleporta-se pelo campo e deixa a paranoia assumir o controle enquanto o adversário tenta descobrir de onde virá seu próximo ataque.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container jett">
+            <img src="agentes/Jett.png" class="img" alt="Jett">
+            <div>
+                <h2 class="brim"><strong>JETT</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Representando a Coreia do Sul, sua terra natal, Jett tem um estilo de luta ágil e evasivo que permite que ela assuma riscos como ninguém. Ela corre em meio a qualquer confronto, cortando os inimigos antes mesmo que eles percebam quem ou o que os atingiu.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container raze">
+            <img src="agentes/raze.png" class="img" alt="Raze">
+            <div>
+                <h2 class="brim"><strong>RAZE</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Raze chega do Brasil com uma explosão de carisma e armas enormes. Com seu estilo de jogo "porradeiro", ela é craque em desentocar inimigos entrincheirados e limpar espaços apertados com uma bela dose de BUUUM!</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container skye">
+            <img src="agentes/Skye.png" class="img" alt="Skye">
+            <div>
+                <h2 class="brim"><strong>SKYE</strong></h2>
+                <h4>Iniciador</h4>
+                <ul>
+                    <li>Mandando um salve direto da Austrália, Skye e sua equipe de feras desbravam territórios hostis. Com seus poderes de cura e suas criações que partem pra cima dos inimigos, qualquer equipe ficará mais forte e mais segura tendo Skye como aliada.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container yoru">
+            <img src="agentes/Yoru.png" class="img" alt="Yoru">
+            <div>
+                <h2 class="brim"><strong>YORU</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Yoru, nativo do Japão, abre fendas na realidade para infiltrar as linhas inimigas sem ser visto. Ele usa tanto artimanhas quanto táticas agressivas, e os alvos são abatidos sem saber de onde o ataque veio.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container astra">
+            <img src="agentes/Astra.png" class="img" alt="Astra">
+            <div>
+                <h2 class="brim"><strong>ASTRA</strong></h2>
+                <h4>Controlador</h4>
+                <ul>
+                    <li>Astra, a Agente ganense, utiliza energias cósmicas para moldar o campo de batalha a seu bel-prazer. Com total domínio da sua forma astral e um talento estratégico nato, ela está sempre anos-luz à frente dos inimigos.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container kayo">
+            <img src="agentes/Kayo.png" class="img" alt="Kayo">
+            <div>
+                <h2 class="brim"><strong>KAY/O</strong></h2>
+                <h4>Iniciador</h4>
+                <ul>
+                    <li>KAY/O é uma máquina de guerra construída com um único propósito: neutralizar Radiantes. Ele é capaz de Suprimir habilidades inimigas, anulando a capacidade de contra-ataque dos adversários e dando a si e a seus aliados uma vantagem essencial em combate.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container Chamber">
+            <img src="agentes/chamber.png" class="img" alt="Chamber">
+            <div>
+                <h2 class="brim"><strong>CHAMBER</strong></h2>
+                <h4>Sentinela</h4>
+                <ul>
+                    <li>Bem-vestido e armado até os dentes, o criador de armas francês Chamber coloca os inimigos para correr com precisão mortal. Use e abuse do arsenal personalizado dele para segurar posições e abater inimigos de longe, criando a defesa perfeita para qualquer plano.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container neon">
+            <img src="agentes/Neon.png" class="img" alt="Neon">
+            <div>
+                <h2 class="brim"><strong>NEON</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Neon, nossa Agente filipina, avança em velocidades incríveis, descarregando surtos de radiância bioelétrica tão rapidamente quanto seu corpo consegue gerá-los. Ela corre à frente para pegar os inimigos de surpresa, abatendo-os mais rápido do que um raio.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container fade">
+            <img src="agentes/Fade.png" class="img" alt="Fade">
+            <div>
+                <h2 class="brim"><strong>FADE</strong></h2>
+                <h4>Iniciador</h4>
+                <ul>
+                    <li>Fade, uma caçadora de recompensas turca, usa o poder dos pesadelos para capturar os segredos dos inimigos. Personificando o próprio terror, ela persegue os alvos e revela seus medos mais profundos para, depois, destruí-los na escuridão.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container harbor">
+            <img src="agentes/Harbor.png" class="img" alt="Harbor">
+            <div>
+                <h2 class="brim"><strong>HARBOR</strong></h2>
+                <h4>Controlador</h4>
+                <ul>
+                    <li>Vindo do litoral indiano, Harbor entra em campo com a força da tormenta, empunhando tecnologia ancestral com domínio sobre a água. Ele libera corredeiras espumantes e ondas esmagadoras para proteger seus aliados ou atacar aqueles que se opõem a ele.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container gekko">
+            <img src="agentes/Gekko.png" class="img" alt="Gekko">
+            <div>
+                <h2 class="brim"><strong>GEKKO</strong></h2>
+                <h4>Iniciador</h4>
+                <ul>
+                    <li>Gekko, de Los Angeles, lidera um grupo muito unido de criaturas caóticas. Seus amigos atropelam tudo, tirando os inimigos do caminho. Depois, Gekko corre atrás deles para reagrupá-los e reiniciar o processo.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container deadlock">
+            <img src="agentes/Deadlock.png" class="img" alt="Deadlock">
+            <div>
+                <h2 class="brim"><strong>DEADLOCK</strong></h2>
+                <h4>Sentinela</h4>
+                <ul>
+                    <li>A agente norueguesa Deadlock posiciona uma gama de nanofios de alta tecnologia para proteger o campo de batalha até mesmo do ataque mais letal. Ninguém escapa do seu olhar vigilante. Ninguém sobrevive à sua ferocidade implacável.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container iso">
+            <img src="agentes/Iso.png" class="img" alt="Iso">
+            <div>
+                <h2 class="brim"><strong>ISO</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Iso é um mercenário chinês que entra em estado de fluxo para desmantelar os oponentes. Ele reconfigura a energia do ambiente para se proteger de balas e avança totalmente focado em direção ao próximo duelo até a morte.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container clove">
+            <img src="agentes/Clove.png" class="img" alt="Clove">
+            <div>
+                <h2 class="brim"><strong>CLOVE</strong></h2>
+                <h4>Controlador</h4>
+                <ul>
+                    <li>Clove, ume encrenqueire da Escócia, vai desorientar os inimigos tanto no calor do combate quanto no frio da morte. Jovem e imortal, elu mantém os inimigos confusos até do além-túmulo: momentos após a morte, elu retorna à vida.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container vyse">
+            <img src="agentes/Vyse.png" class="img" alt="Vyse">
+            <div>
+                <h2 class="brim"><strong>VYSE</strong></h2>
+                <h4>Sentinela</h4>
+                <ul>
+                    <li>A mestre dos metais Vyse usa metal líquido para isolar, prender e desarmar os inimigos. Com astúcia e manipulação, ela faz todos os adversários que a enfrentam temerem o próprio campo de batalha.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container tejo">
+            <img src="agentes/Tejo.png" class="img" alt="Tejo">
+            <div>
+                <h2 class="brim"><strong>TEJO</strong></h2>
+                <h4>Iniciador</h4>
+                <ul>
+                    <li>Consultor de inteligência veterano da Colômbia, Tejo conta com um sistema de orientação balística que força o inimigo a abrir mão da posição — ou da vida. Os ataques precisos dele mantêm os oponentes desestabilizados e sob seu controle.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="agent-container waylay">
+            <img src="agentes/Waylay.png" class="img" alt="Waylay">
+            <div>
+                <h2 class="brim"><strong>WAYLAY</strong></h2>
+                <h4>Duelista</h4>
+                <ul>
+                    <li>Waylay, a Radiante prismática da Tailândia, se transforma em pura luz e atravessa o campo de batalha abatendo os alvos com estilhaços luminosos antes de recuar. Tudo em um piscar de olhos.</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <hr>
+
+    <footer>
+        <p class="fo"> ©2020-2025 Riot Games, Inc. RIOT GAMES, VALORANT e todos os logotipos associados são marcas comerciais, marcas de serviço e/ou marcas registradas da Riot Games, Inc.</p>
+    </footer>
+</body>
+</html>

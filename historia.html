@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História</title>
+    <style>
+        body {
+            background-color: #111;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .navbar-left, .navbar-center {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            padding: 0 20px;
+        }
+
+        .navbar-left img {
+            height: 32px;
+        }
+
+        .navbar-left .logo {
+            height: 100px;
+            max-height: 92px;
+            width: 160px;
+            margin-left: -50px;
+            margin-right: -20px;
+        }
+
+        .navbar-left a,
+        .navbar-center a {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-left a:hover,
+        .navbar-center a:hover {
+            color: red;
+        }
+
+        /* Imagem */
+        .jett {
+            height: 950px;
+            width: auto;
+            padding: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .tsp {
+            position: absolute;
+            top: 60%;
+            left: 15%;
+            color: white;
+            font-size: 42px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Seções de conteúdo */
+        .primeira-parte {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+            padding: 80px 0;
+            align-items: center;
+        }
+
+        .left, .right {
+            width: 50%;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            font-size: 25px;
+            margin-bottom: 20px;
+            color: #ff4e58;
+        }
+
+        p {
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        i {
+            color: #ccc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1c1c26;
+            height: 110px;
+            width: 100%;
+            color: rgba(255, 255, 255, 0.407);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fo {
+            font-size: 12px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .primeira-parte {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .left, .right {
+                width: 100%;
+                padding: 20px;
+            }
+
+            .jett {
+                height: auto;
+                width: 100%;
+                padding: 80px 20px;
+            }
+
+            .tsp {
+                position: static;
+                text-align: center;
+                padding: 20px;
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .navbar-center {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .navbar-center a {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .tsp {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-left">
+            <img class="logo" src="riot.png" alt="riot">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25">
+                <path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path>
+            </svg>
+        </div>
+        <div class="navbar-center">
+ <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+        </div>
+    </div>
+
+    <div>
+        <img class="jett" src="jett.jpg" alt="jett">
+        <div class="tsp">
+            <p>A História</p>
+        </div>
+    </div>
+
+    <section class="primeira-parte">
+        <div class="left">
+            <h3><b>VALORANT</b></h3>
+            <p><strong>Começou com uma ideia: um jogo de tiro tático e inovador, que fosse acessível para o cénario competitivo. E sendo baseado em personagens, ambientados em uma terra de um futuro próximo. E tinham o desejo de expandir além do League of Legends. A ideia usou como inspiração o jogo Counter-Strike.</strong></p>
+        </div>
+        <div class="right">
+            <img src="raze.jpg" alt="raze">
+        </div>
+    </section>
+
+    <section class="primeira-parte">
+        <div class="right">
+            <h3><b>O COMEÇO</b></h3>
+            <p><strong>2014/2015, quando a empresa <strong>Riot Games </strong>(mais conhecida pelo jogo <i>League of Legends</i>) decidiu entrar em um desafio, criar um novo jogo em um universo diferente do LOL. A equipe queria explorar e abordar o gênero de <strong>FPS(First-Person Shooter)</strong>, com alguns diferenciais, sendo eles na precisão tática e com personagens com habilidades únicas.</strong></p>
+        </div>
+        <div class="left">
+            <img src="beta.jpg" alt="beta">
+        </div>
+    </section>
+
+    <section class="primeira-parte">
+        <div class="left">
+            <h3><b>PROJETO A</b></h3>
+            <p><strong>Durante o desenvolvimento do jogo, ele foi chamado de <strong>"PROJETO A"</strong>. A Riot montou uma equipe de ex-desenvolvedores de <i>Call of Duty, Counter-Strike</i> e <i>Halo</i>. O Objetivo era criar um jogo com: <br><br>•Baixa latência e servidores confiavéis<br><br>•Combate justo(sem pay-to-win) <br><br>•Anti-cheat eficiente <br><br>•Desing competitivo desde o início.</strong></p>
+        </div>
+        <div class="right">
+            <img src="projetoA.jpg" alt="projeto">
+        </div>
+    </section>
+
+    <section class="primeira-parte">
+        <div class="right">
+            <h3><b>CONSTRUÇÃO E TESTES</b></h3>
+            <p><strong>2016/2019, a equipe trabalhou arduamente para criar o jogo, realizando testes internos e fechados com jogadores selecionados. Durante esse período, o jogo passou por várias mudanças e melhorias, incluindo ajustes nas mecânicas de jogo, balanceamento de personagens e otimização de servidores. <br><br>A Riot Games: <br><br>•Criou todos os protótipos de mapas, armas e agentes do jogo <br><br>•Arriscou alguns estilos mais artísticos mas optaram por algo mais leve <br><br>•Ajustou a jogabilidade para premiar precisão, estratégia e comunicação.</strong></p>
+        </div>
+        <div class="left">
+            <img src="teste.jpg" alt="teste">
+        </div>
+    </section>
+
+    <section class="primeira-parte">
+        <div class="left">
+            <h3><b>EVOLUÇÃO PARA MOBILE</b></h3>
+            <p><strong>A Riot Games com parceria com a <strong>LightSpeed</strong> iniciou em 21 de abril de 2025, a criação do jogo para o mobile na China. O beta ômega fechado irá rodar entre 12 e 16 de julho, com recompensas.<br><br> A Riot ainda não confirmou sobre as datas de lançamento para fora da China, mas analistas estimam que a versão global pode sair no verão(hemisfério norte), podendo ser adiada para 2026.<br> <br> O mobile irá preservar o combate 5v5 com habilidades dos agentes, mira por toque e haverá 16 agentes, com mapas clássicos e exclusivos. Alguns requisitos são: Android 10+ com 6GB de RAM ou IOS 15+, com 4 até 10 GB de espaço.</p>
+        </div>
+        <div class="right">
+            <img src="mob.jpg" alt="mob" style="max-width: 160%; height: auto;">
+        </div>
+    </section>
+
+    <footer>
+        <p class="fo">©2020-2025 Riot Games, Inc. RIOT GAMES, VALORANT e todos os logotipos associados são marcas comerciais, marcas de serviço e/ou marcas registradas da Riot Games, Inc.</p>
+    </footer>
+</body>
+</html>

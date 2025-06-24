@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapas</title>
+    <style>
+        @charset "UTF-8";
+        @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kaushan+Script&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(228, 222, 222);
+            padding-top: 80px; /* Para compensar a navbar fixa */
+        }
+
+        .navbar {
+          background-color: #111;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 80px;
+          position: fixed;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
+          padding: 0; 
+          box-sizing: border-box; 
+        }
+
+        .navbar-left, .navbar-center {
+          display: flex; 
+          align-items: center;
+          gap: 0px; 
+          padding: 0 20px; 
+        }
+        
+        .navbar-left img {
+          height: 32px;
+        }
+        
+        .navbar-left .logo {
+          height: 100px;
+          max-height: 92px;
+          width: 160px;
+          margin-left: -50px;
+          margin-right: -20px;
+        }
+
+        .navbar-left a, 
+        .navbar-center a {
+          font-family: Arial, sans-serif; 
+          color: #fff;
+          text-decoration: none;
+          padding: 0 15px;
+          transition: color 0.3s;
+        }
+
+        .navbar-left a:hover,
+        .navbar-center a:hover {
+          color: red;
+        }
+
+        header {
+          background-color: #F24162;
+          color: aliceblue;
+          padding: 10px;
+          margin: 10px;
+          box-shadow: 5px 3px 7px rgb(64, 62, 62);
+          border-radius: 10px;
+        }
+
+        hr {
+         height: 2px;
+          background-color: #33333378;
+          border: none;
+          width: 50%;
+          margin: 20px auto;
+        }
+
+        h1 {
+            font-family: "Anton", sans-serif;
+          font-weight: 400;
+          font-size: 90px;
+          font-style: normal;
+          color: black;
+        }
+
+        h2 {
+            font-family: "Anton", sans-serif;
+          font-weight: 600;
+          font-style: normal;
+          margin: 10px;
+          font-size: 60px;
+        }
+
+        h3 {
+          margin-top: 0px;
+          font-family: "Inter", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: weight;
+          font-style: normal;
+        }
+
+        li {
+          margin: 10px;
+          font-family: "Inter", sans-serif;
+        }
+
+        .container-slider {
+          display: flex;
+          width: 100%;
+          min-height: 50vh; /* Reduzi para não ocupar tanto espaço */
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          margin: 20px 0;
+        }
+
+        .container-images {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 700px;
+          height: 400px; /* Altura fixa para as imagens */
+        }
+
+        .slider {
+          opacity: 0;
+          transition: opacity .2s;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 10px;
+        }
+
+        .on {
+          opacity: 1;
+        }
+
+        .prev-button, .next-button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        }
+
+        .prev-button img, .next-button img {
+          width: 100%;
+          height: 100%;
+        }
+
+        .prev-button {
+          transform: rotate(180deg);
+        }
+
+        footer {
+          background-color: #1c1c26;
+          height: 110px;
+          width: auto;
+          color: rgba(255, 255, 255, 0.407);
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .fo {
+          font-size: 8px
+        }
+    </style>
+</head>
+<body>
+
+   <div class="navbar">
+    <div class="navbar-left">
+      <img class="logo" src="riot.png" alt="riot">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
+    </div>
+    <div class="navbar-center">
+  <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+    </div>
+  </div>
+
+ <header>
+    <h1><strong>MAPAS</strong></h1>
+    <h3>
+       Cada mapa serve como um palco para mostrar sua criatividade. Os mapas são feitos sob medida para estrátegias de equipe, jogadas espetaculares e momentos eletrizantes. Faça as jogadas que todo mundo vai tentar imitar no futuro.
+    </h3>
+ </header>
+
+ <hr>
+
+ <main>
+    <h2><Strong>SUNSET</Strong></h2>
+    <ul>
+       <li>Um desastre em uma instalação da Kingdom ameaça engolir toda a vizinhança. Dé um pulo no seu food truck favorito e depois lute por toda a cidade neste mapa de três rotas.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+         <img src="foto dos mapas/sunset/foto 1.webp" alt="" class="slider on">
+         <img src="foto dos mapas/sunset/foto 2.PNG" alt="" class="slider">
+         <img src="foto dos mapas/sunset/foto 3.PNG" alt="" class="slider">
+      </div>
+      <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+ </main>
+
+ <hr>
+
+ <main>
+    <h2><strong>LOTUS</strong></h2>
+    <ul>
+       <li>Uma estrutura misteriosa com um conduíte astral irradia poder ancestral. Grandes portas de pedra oferecem varias oportunidades de movimentação e revelam caminhos para três locais enigmáticos.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/lotus/foto 1.PNG" alt="" class="slider on">
+          <img src="foto dos mapas/lotus/foto 2.PNG" alt="" class="slider">
+          <img src="foto dos mapas/lotus/foto 3.PNG" alt="" class="slider">
+        </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+   </main>
+ 
+ <hr>
+
+ <main>
+    <h2><strong>PEARL</strong></h2>
+    <ul>
+       <li>Atacantes avançam em direção aos Defensores neste vibrante mapa subaquático com dois pontos principais. Pearl é um mapa sem mecânicas focado no ambiente. Encare a batalha em Meio compacto ou em áreas mais alongadas no nosso primeiro mapa situado na Terra ômega.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/pearl/foto 1.webp" alt="" class="slider on">
+          <img src="foto dos mapas/pearl/foto 2.PNG" alt="" class="slider">
+          <img src="foto dos mapas/pearl/foto 3.JPG" alt="" class="slider">
+         </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+   </main>
+
+   <hr>
+
+ <main>
+    <h2><strong>FRACTURE</strong></h2>
+    <ul>
+       <li>Um local de pesquisa altamente confidencial partido ao meio por um experimento com Radianita malsucedido. Com opções tão divididas quanto o próprio mapa para os defensores, a escolha é sua: encare os atacantes na própria base deles ou prepare o terreno para um ataque iminente.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/fracture/foto 1.jpg" alt="" class="slider on">
+          <img src="foto dos mapas/fracture/foto 2.PNG" alt="" class="slider">
+          <img src="foto dos mapas/fracture/foto 3.png" alt="" class="slider">
+         </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+   </main>
+
+   <hr>
+
+ <main>
+    <h2><strong>BREEZE</strong></h2>
+    <ul>
+       <li>Conheça as ruínas históricas ou visite as grutas deste paraíso tropical. Mas é bom se cobrir, pois temos espaços muito abertos em embates de loga distância. Cuide dos seus flancos e você poderá curtir a brisa do Breeze.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/breeze/foto 1.jpg" alt="" class="slider on">
+          <img src="foto dos mapas/breeze/foto 2.jpg" alt="" class="slider">
+          <img src="foto dos mapas/breeze/foto 3.jpg" alt="" class="slider">
+         </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+   </main>
+
+   <hr>
+
+ <main>
+    <h2><strong>ICE BOX</strong></h2>
+    <ul>
+       <li>Seu próximo campo de batalha será uma área de escavação secreta da Kingdom retomada pela força do Ártico. Você precisará ter cuidado com os terrenos horizontais dos dois pontos principais, que são protegidos por neve e metal. Aproveite para usar as tirolesas, e seus inimigos nunca verão seu ataque iminente.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/ice box/foto 1.PNG" alt="" class="slider on">
+          <img src="foto dos mapas/ice box/foto 2.jpg" alt="" class="slider">
+          <img src="foto dos mapas/ice box/foto 3.PNG" alt="" class="slider">
+         </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+   </main>
+
+   <hr>
+
+  <main>
+     <h2><strong>BIND</strong></h2>
+      <ul>
+       <li>Dois pontos. Nenhuma área no meio. Você precisa escolher: direita ou esquerda? E aí, qual vai ser? Ambos os lados oferecem caminhos diretos para os atacantes, e dois teleportadores de sentido único facilitam o flanqueamento.</li>
+      </ul>
+      <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/bind/foto 1.jpg" alt="" class="slider on">
+          <img src="foto dos mapas/bind/foto 2.PNG" alt="" class="slider">
+          <img src="foto dos mapas/bind/foto 3.PNG" alt="" class="slider">
+       </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+ </main>
+
+ <hr>
+
+ <main>
+    <h2><strong>HAVEN</strong></h2>
+    <ul>
+       <li>Sob um mosteiro abandonado, é possível ouvir agentes se enfrentando pelo controle de três pontos distintos. Neste mapa, há mais áreas para controlar. Em compensação, os defensores também conseguem aproveitar o território extra para coordenar investidas mais agressivas.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/haven/foto 1.PNG" alt="" class="slider on">
+          <img src="foto dos mapas/haven/foto 2.PNG" alt="" class="slider">
+          <img src="foto dos mapas/haven/foto 3.jpg" alt="" class="slider">
+         </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+ </main>
+
+ <hr>
+
+ <main>
+    <h2><strong>SPLIT</strong></h2>
+    <ul>
+       <li>Se quiser avançar, é preciso subir. Separados por uma área central elevada, dois pontos fornecem movimentação rápida com duas cordas ascendentes. Cada ponto tem uma torre imponente que é vital para o controle da área. E não se esqueça: mantenha os olhos abertos e focados nas áreas elevadas antes que tudo vá pelos ares.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/split/foto 1.jpg" alt="" class="slider on">
+          <img src="foto dos mapas/split/foto 2.jpg" alt="" class="slider">
+          <img src="foto dos mapas/split/foto 3.PNG" alt="" class="slider">
+         </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+ </main>
+
+ <hr>
+
+ <main>
+    <h2><strong>ASCENT</strong></h2>
+    <ul>
+       <li>Com várias opções de posicionamento e conflito, um território aberto divide duas áreas em Ascent. Cada uma pode ser fortificada por portas explosivas irreversíveis que, quando derrubadas, forçam as equipes a destruí-las ou a acharem outra maneira de prosseguir. Não deixe que o inimigo tome o seu território.</li>
+    </ul>
+    <div class="container-slider">
+       <button class="prev-button"><img src="arrow.png" alt=""></button>
+       <div class="container-images">
+          <img src="foto dos mapas/ascent/foto 1.jpg" alt="" class="slider on">
+          <img src="foto dos mapas/ascent/foto 2.PNG" alt="" class="slider">
+          <img src="foto dos mapas/ascent/foto 3.jpg" alt="" class="slider">
+         </div>
+       <button class="next-button"><img src="arrow.png" alt=""></button>
+    </div>
+   </main>
+
+   <hr>
+
+  <footer>
+   <p class="fo"> ©2020-2025 Riot Games, Inc. RIOT GAMES, VALORANT e todos os logotipos associados são marcas comerciais, marcas de serviço e/ou marcas registradas da Riot Games, Inc.</p>
+  </footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.container-slider').forEach((container) => {
+            const slider = container.querySelectorAll('.slider');
+            const btnPrev = container.querySelector('.prev-button');
+            const btnNext = container.querySelector('.next-button');
+            
+            let currentSlide = 0;
+
+            function hideSlider() {
+                slider.forEach(item => item.classList.remove('on'));
+            }
+
+            function showSlider() {
+                slider[currentSlide].classList.add('on');
+            }
+
+            function nextSlider() {
+                hideSlider();
+                if(currentSlide === slider.length - 1) {
+                    currentSlide = 0;
+                } else {
+                    currentSlide++;
+                }
+                showSlider();
+            }
+
+            function prevSlider() {
+                hideSlider();
+                if(currentSlide === 0) {
+                    currentSlide = slider.length - 1;
+                } else {
+                    currentSlide--;
+                }
+                showSlider();
+            }
+
+            btnNext.addEventListener('click', nextSlider);
+            btnPrev.addEventListener('click', prevSlider);
+
+            // Inicializa o slider
+            hideSlider();
+            showSlider();
+        });
+    });
+</script>
+
+</body>
+</html>

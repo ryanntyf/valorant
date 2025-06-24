@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant Mecânicas</title>
+    <style>
+        body {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(255, 252, 252);
+            background-color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+            padding-top: 80px; /* Espaço para a navbar */
+        }
+
+        /* Estilos da Navbar */
+        .navbar {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0;
+            box-sizing: border-box;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar.hidden {
+            transform: translateY(-100%);
+        }
+
+        .navbar-left, .navbar-center {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            padding: 0 20px;
+        }
+
+        .navbar-left img {
+            height: 32px;
+        }
+
+        .navbar-left .logo {
+            height: 100px;
+            max-height: 92px;
+            width: 160px;
+            margin-left: -50px;
+            margin-right: -20px;
+        }
+
+        .navbar-left a,
+        .navbar-center a {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar-left a:hover,
+        .navbar-center a:hover {
+            color: red;
+        }
+
+        .wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        main {
+            background-color: rgb(143, 20, 20);
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 900;
+            color: rgb(241, 239, 239);
+            text-align: center;
+        }
+
+        section.module p {
+            margin-bottom: 40px;
+        }
+
+        section.module:last-child {
+            margin-bottom: 0;
+        }
+
+        section.module h2 {
+            margin-bottom: 40px;
+            font-size: 30px;
+        }
+
+        section.module.content {
+            padding: 40px 0;
+            background: rgba(124, 23, 23, 0.8);
+        }
+
+        section.module.content .info {
+            background: #1a1d21;
+        }
+
+        section.module.parallax {
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh !important;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        section.module.parallax:after {
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 8;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        section.module.parallax-1 {
+            background-image: url(https://www.riotgames.com/darkroom/2880/9b3da9b650454646cf2a52a1635d5fe2:dd2c396d6a59d9840e263c0f6f4dffc9/beta-key-art-valorant.jpg);
+        }
+
+        section.module.parallax-2 {
+            background-image: url(https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt158572ec37653cf3/5eb2383c5e73766852c8d5d4/V_AGENTS_587x900_Jett.png);
+        }
+
+        section.module.parallax-3 {
+            background-image: url(https://gmedia.playstation.com/is/image/SIEPDC/valorant-hero-02-en-26july24?$2400px$);
+        }
+
+        section.module.parallax-4 {
+            background-image: url(https://gmedia.playstation.com/is/image/SIEPDC/valorant-packshot-01-en-31may24?$1600px$);
+        }
+
+        section.module.parallax-5 {
+            background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/79d63f5c419ddb4929c6f626662e6250ef293858-1920x1080.jpg?auto=format&fit=fill&q=80&w=1480);
+        }
+
+        section.module.parallax-6 {
+            background-image: url(https://cdn.prod.website-files.com/63f78322305db10494a5538f/668720a348de2b6d42e24c6d_skins-do-valorant.jpg);
+        }
+
+        .parallax-entre-1-e-2 {
+            background-image: url(https://updateordie.com/wp-content/uploads/2020/08/valorant-couldnt-start-how-to-fix.jpg.webp);
+        }
+
+        section.module.parallax h1 {
+            color: rgb(255, 254, 240);
+            text-align: center;
+            font-size: 78px;
+            z-index: 50;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+        }
+
+        .armas-section {
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .titulo {
+            font-size: 3rem;
+            color: #f6eded;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .arma {
+            background: #1a1a1a;
+            border-left: 5px solid #00bfff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .arma h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .arma p {
+            font-size: 1rem;
+            color: #cccccc;
+            margin: 4px 0;
+        }
+
+        .info {
+            background-color: #1a1d21;
+            border: 2px solid #ff4e58;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 0 10px #ff4e58;
+        }
+
+        .info h2 {
+            font-size: 1.8em;
+            color: #ff4e58;
+        }
+
+        .info p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
+
+        .btn-start {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 25px;
+            background-color: #ff4e58;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3em;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-start:hover {
+            background-color: #e6444f;
+        }
+
+        /* Estilos para a tabela */
+        .table-container {
+            margin: 40px auto;
+            max-width: 1000px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #1a1a1a;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        th {
+            background-color: #ff4e58;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        tr:nth-child(even) {
+            background-color: #222;
+        }
+
+        tr:hover {
+            background-color: #333;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            section.module.parallax h1 {
+                font-size: 48px;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+            
+            .arma {
+                padding: 15px;
+            }
+            
+            .arma h3 {
+                font-size: 1.5rem;
+            }
+
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8em;
+            }
+
+            .navbar-center {
+                display: none; /* Esconde os links em telas pequenas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegação -->
+    <div class="navbar">
+        <div class="navbar-left">
+            <img class="logo" src="riot.png" alt="riot">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
+        </div>
+        <div class="navbar-center">
+ <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <main>
+            <section class="module parallax parallax-1">
+                <h1>Valorant Mecânicas</h1>
+            </section>
+
+            <section class="module content">
+                <div class="container">
+                    <h2>1. Movimentação (Strafe e Walk)</h2>
+                    <p>
+                        A movimentação afeta diretamente sua precisão. Andar (Shift) é silencioso e mantém sua mira precisa. Correr permite velocidade, mas reduz a precisão.
+                        <br><br>
+                        Use strafe (A/D) para peekar rapidamente e voltar para cobertura.
+                        <br><br>
+                        Dica: Combine strafe e contra-strafe para resetar a precisão instantaneamente.
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-entre-1-e-2"></section>
+
+            <section class="module parallax parallax-2">
+                <div class="container">
+                    <h2>2. Controle de Recuo (Spray Control)</h2>
+                    <p>
+                        Cada arma possui um padrão de recuo. Controlar esse padrão movendo o mouse na direção oposta melhora sua precisão.
+                        <br><br>
+                        Dar "burst shots" curtos é mais eficiente do que atirar em rajada contínua.
+                        <br><br>
+                        Dica: Treine no campo de tiro os padrões de spray da Vandal e da Phantom.
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-3"></section>
+
+            <section class="module content">
+                <div class="container">
+                    <h2>3. Uso de Habilidades (Utility)</h2>
+                    <p>
+                        As habilidades são fundamentais para controlar o mapa, entrar nos sites ou impedir avanços inimigos.
+                        <br><br>
+                        Smokes, flashes e habilidades de informação (como o drone do Sova) podem virar o jogo.
+                        <br><br>
+                        Dica: Combine suas habilidades com a do time para ataques coordenados.
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-4"></section>
+
+            <section class="module content">
+                <div class="container">
+                    <h2>4. Tempo e Rotação</h2>
+                    <p>
+                        Cada rodada dura 1:40, e o spike explode em 40s. Saber quando recuar ou rotacionar pode decidir a partida.
+                        <br><br>
+                        Fakear um bombsite pode forçar o time inimigo a se reposicionar incorretamente.
+                        <br><br>
+                        Dica: Use o minimapa e o som para planejar rotações e retakes.
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-5"></section>
+
+            <section class="module content">
+                <div class="container">
+                    <section class="armas-section">
+                        <h2 class="titulo">ARMAS</h2>
+                    </section>
+                    
+                    <div class="arma">
+                        <h3>Vandal</h3>
+                        <p><strong>Tipo:</strong> Rifle</p>
+                        <p><strong>Dano:</strong> 160 (cabeça), 40 (corpo)</p>
+                        <p><strong>Observação:</strong> Ideal para tiros precisos de longa distância.</p>
+                    </div>
+
+                    <div class="arma">
+                        <h3>Phantom</h3>
+                        <p><strong>Tipo:</strong> Rifle</p>
+                        <p><strong>Dano:</strong> 156 (cabeça), 39 (corpo)</p>
+                        <p><strong>Observação:</strong> Melhor para tiros curtos e combates próximos.</p>
+                    </div>
+
+                    <div class="arma">
+                        <h3>Operator</h3>
+                        <p><strong>Tipo:</strong> Sniper</p>
+                        <p><strong>Dano:</strong> 255 (cabeça/corpo/perna)</p>
+                        <p><strong>Observação:</strong> Sniper de alto risco e alta recompensa.</p>
+                    </div>
+
+                    <div class="arma">
+                        <h3>Judge</h3>
+                        <p><strong>Tipo:</strong> Shotgun</p>
+                        <p><strong>Dano:</strong> 34x12 por tiro (muito perto)</p>
+                        <p><strong>Observação:</strong> Ótima em curta distância e mapas estreitos.</p>
+                    </div>
+
+                    <div class="arma">
+                        <h3>Sheriff</h3>
+                        <p><strong>Tipo:</strong> Pistola</p>
+                        <p><strong>Dano:</strong> 160 (cabeça), 55 (corpo)</p>
+                        <p><strong>Observação:</strong> Pistola de precisão e alto impacto.</p>
+                    </div>
+
+                    <!-- Tabela de Agentes -->
+                    <div class="table-container">
+                        <h2 class="titulo">AGENTES E SUAS HABILIDADES</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Agente</th>
+                                    <th>Função</th>
+                                    <th>Habilidade Q</th>
+                                    <th>Habilidade E</th>
+                                    <th>Habilidade C</th>
+                                    <th>Ultimate (X)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Jett</td>
+                                    <td>Duelista</td>
+                                    <td>Corrente Ascendente</td>
+                                    <td>Brisa de impulso</td>
+                                    <td>Erupção das Brumas</td>
+                                    <td>Tormenta de Aço</td>
+                                </tr>
+                                <tr>
+                                    <td>Phoenix</td>
+                                    <td>Duelista</td>
+                                    <td>Bola Curva</td>
+                                    <td>Mãos Quentes</td>
+                                    <td>Labareda</td>
+                                    <td>Renascimento</td>
+                                </tr>
+                                <tr>
+                                    <td>Sova</td>
+                                    <td>Iniciador</td>
+                                    <td>Flecha de Choque</td>
+                                    <td>Flecha Rastreadora</td>
+                                    <td>Drone Coruja</td>
+                                    <td>Fúria do Caçador</td>
+                                </tr>
+                                <tr>
+                                    <td>Brimstone</td>
+                                    <td>Controlador</td>
+                                    <td>Incendiário</td>
+                                    <td>Fumaça Celeste</td>
+                                    <td>Sinalizador Estimulante</td>
+                                    <td>Ataque Orbital</td>
+                                </tr>
+                                <tr>
+                                    <td>Sage</td>
+                                    <td>Sentinela</td>
+                                    <td>Orbe de Lentidão</td>
+                                    <td>Orbe de Cura</td>
+                                    <td>Orbe de Barreira</td>
+                                    <td>Ressurreição</td>
+                                </tr>
+                                <tr>
+                                    <td>Reyna</td>
+                                    <td>Duelista</td>
+                                    <td>Devorar</td>
+                                    <td>Dispensar</td>
+                                    <td>Olhar Voraz</td>
+                                    <td>Imperatriz</td>
+                                </tr>
+                                <tr>
+                                    <td>Killjoy</td>
+                                    <td>Sentinela</td>
+                                    <td>Robô de Alarme</td>
+                                    <td>Torreta</td>
+                                    <td>Nanoenxame</td>
+                                    <td>Confinamento</td>
+                                </tr>
+                                <tr>
+                                    <td>Omen</td>
+                                    <td>Controlador</td>
+                                    <td>Paranoia</td>
+                                    <td>Manto Sombrio</td>
+                                    <td>Passos Tenebrosos</td>
+                                    <td>Salto das Sombras</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-6"></section>
+
+            <section class="module content">
+                <div class="container">
+                    <h1>INFORMAÇÕES DA PARTIDA</h1>
+
+                    <section class="info">
+                        <h2>🎯 Formato 5x5</h2>
+                        <p>O jogo é disputado entre dois times com 5 jogadores cada: atacantes e defensores.</p>
+                    </section>
+
+                    <section class="info">
+                        <h2>💣 Spike (Bomba)</h2>
+                        <p>O time atacante deve plantar a Spike em um dos pontos do mapa, enquanto os defensores precisam impedi-los ou desarmar a Spike se for plantada.</p>
+                    </section>
+
+                    <section class="info">
+                        <h2>💰 Economia de Round</h2>
+                        <p>Os jogadores recebem créditos por desempenho, vitórias, eliminações e planta/desarme da Spike. Esses créditos são usados para comprar armas, escudos e habilidades no início de cada rodada.</p>
+                    </section>
+
+                    <section class="info">
+                        <h2>⚡ Habilidades</h2>
+                        <p>Cada agente possui habilidades únicas. Elas custam créditos e são usadas para criar vantagem estratégica durante a partida.</p>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Sistema para a navbar desaparecer ao rolar para baixo e aparecer ao rolar para cima
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 0) {
+                navbar.classList.remove('hidden');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !navbar.classList.contains('hidden')) {
+                // Rolar para baixo
+                navbar.classList.add('hidden');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('hidden')) {
+                // Rolar para cima
+                navbar.classList.remove('hidden');
+            }
+            
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>

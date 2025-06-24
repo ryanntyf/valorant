@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valorant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;   
+    }
+
+    * { 
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .navbar {
+      background-color: #111;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 0; 
+      box-sizing: border-box; 
+    }
+
+    .navbar-left, .navbar-center {
+      display: flex; 
+      align-items: center;
+      gap: 0px; 
+      padding: 0 20px; 
+    }
+    
+    .navbar-left img {
+      height: 32px;
+    }
+    
+    .navbar-left .logo {
+      height: 100px;
+      max-height: 92px;
+      width: 160px;
+      margin-left: -50px;
+      margin-right: -20px;
+    }
+
+    .navbar-left a, 
+    .navbar-center a {
+      font-family: Arial, sans-serif; 
+      color: #fff;
+      text-decoration: none;
+      padding: 0 15px;
+      transition: color 0.3s;
+    }
+
+    .navbar-left a:hover,
+    .navbar-center a:hover {
+      color: red;
+    }
+
+    /*imagem*/
+    .masters, .attva, .comu {
+      margin-left: 15px;
+      height: 240px;
+      padding: 35px;
+    }
+
+    .texto {
+      align-items: center;
+      margin-left: 10px;
+      padding: -1px;
+      font-size: 16px;
+      line-height: 0;
+    }
+
+    .noticias-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .text, .com, .att {
+      width: 300px;
+      padding: 0px;
+      box-sizing: border-box;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .text img, .com img, .att img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px auto;
+      border-radius: 0px;
+    }
+
+    .destaque {
+      color: #F24162;
+    }
+
+    .imagem-container {
+      position: relative;
+      width: 100vw; 
+    }
+
+    .imagem-container img {
+      width: 100vw; 
+      height: auto;
+      display: block;
+    }
+
+    .btn-img {
+      position: absolute;
+      top: 90%;      
+      left: 75%;     
+      transform: translateY(-50%); 
+      padding: 20px 40px;
+      background: #F24162;
+      color: white;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .primeira-parte {
+      display: flex;
+      width: 100%;
+      height: 100vh; 
+    }
+
+    .left {
+      width: 40%; 
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .right {
+      width: 60%; 
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .btn2 {
+      padding: 20px 40px;
+      background: #F24162;
+      color: white;
+    }
+
+    footer {
+      background-color: #1c1c26;
+      height: 110px;
+      width: auto;
+      color: rgba(255, 255, 255, 0.407);
+      text-align: center;
+    }
+
+    .fo {
+      font-size: 8px
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+
+    <div class="navbar-left">
+
+      <img class="logo" src="riot.png" alt="riot">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
+    </div>
+    <div class="navbar-center">
+  <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+</div>
+
+  </div>
+
+
+  <center> <video width="100%" height="100%" autoplay loop muted>
+      <source src="valorantplayback.mp4" type="video/mp4">
+  </center>
+
+
+  </video>
+  <br>
+  <br>
+  <center>
+<h1>ÚLTIMAS NOTÍCIAS</h1>
+</center>
+<div class="noticias-container">
+
+  <div class="text">
+    <img src="masters.jpg" alt="masters">
+    <br>
+    <strong><span class="destaque">Esports</span> | 19/06/25</strong><br>
+    <br>
+    <h3>Masters Toronto</h3><br>
+    <p>O Masters Toronto chegou! Prepare-se para a ação intensa e as jogadas emocionantes dos melhores times do mundo. Não perca nenhum momento dessa competição épica! 
+      <a href="https://valorantesports.com/pt-BR/news/masters-toronto-map-reveal-showmatch-and-grand-finals-this-weekend">Clique aqui.</a>
+    </p>
+  </div>
+
+  <div class="com">
+    <img src="comu.jpg" alt="comu">
+    <br>
+    <strong><span class="destaque">Comunidade</span> | 19/06/25</strong><br><br>
+    <h3>Torneios da comunidade - 13/06 a 18/06</h3><br>
+    <p>Acesse e participe dos melhores torneios criados pela comunidade de Valorant! No site oficial do <strong>Valorant</strong> eles publicam semanalmente um calendário com os torneios que estão acontecendo.
+      <a href="https://playvalorant.com/pt-br/news/community/torneios-de-comunidade---13/06-a-18/06">Clique aqui!</a>
+    </p>
+  </div>
+
+  <div class="att">
+    <img src="attva.jpg" alt="attva">
+    <br>
+    <strong><span class="destaque">Atualização</span> | 19/06/25</strong><br><br>
+    <h3>Atualizações 10.11 Valorant</h3><br>
+    <p>Fique de olho nas novas atualizações do game! As atualizações principais são: novo passe de batalha, passe de evento comemorativo, sistema de presente e correção de bugs. 
+      <a href="https://playvalorant.com/pt-br/news/game-updates/valorant-patch-notes-10-11">Clique aqui.</a>
+    </p>
+  </div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+
+<div class="imagem-container">
+  <img src="tejo.jpg" style="width: 90vw; height: auto; display: block; margin: 0 auto;">
+  <a href="https://youtu.be/F7S8nOgDfBE?si=BMZ9ouW6Znn-usBy" class="btn-img"><strong>VEJA O TRAILER</strong></a>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<section class="primeira-parte">
+    <div class="left">
+     
+      <h1 style="font-size: 44px;"><b>O que é Valorant</b></h1>
+    
+      <p style="text-align: justify;"><strong>Valorant é um FPS tático 5x5 competitivo focado em personagens que se passa no mundo todo. Faça jogadas incríveis e supere seus oponentes com habilidades táticas, mecânica de tiro e trabalho em equipe. Você tem 13 rodadas para atacar e defender o seu lado usando disparos certeiros e habilidades táticas.</strong></p>
+     <br>
+     <br>
+     <br>
+     <br>
+     <center>
+      <a href="https://playvalorant.com/pt-br/" class="btn2"><strong>JOGUE AGORA</strong></a>
+      </center>
+    </div>
+    <div class="right">
+      <img src="inicio.jpg" alt="inicio" style="width: 100%; height: auto; border-radius: 10px;">
+    </div>
+  </section>
+
+  
+</body>
+
+<footer>
+   <br>
+   <br>
+   <br>
+   <p class="fo"> ©2020-2025 Riot Games, Inc. RIOT GAMES, VALORANT e todos os logotipos associados são marcas comerciais, marcas de serviço e/ou marcas registradas da Riot Games, Inc.</p>
+  </footer>
+
+</html>

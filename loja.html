@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalização e Loja Valorant</title>
+    <style>
+        /* NAVBAR COM EFEITO DE ESCONDER */
+        .navbar {
+            background-color: #111;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 0;
+            box-sizing: border-box;
+            transition: transform 0.3s ease-in-out;
+            border-bottom: 1px solid #333;
+        }
+
+        .navbar.hide {
+            transform: translateY(-100%);
+        }
+
+        .navbar.show {
+            transform: translateY(0);
+        }
+
+        .navbar-left, .navbar-center {
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            padding: 0 20px;
+        }
+
+        .navbar-left img {
+            height: 32px;
+        }
+
+        .navbar-left .logo {
+            height: 100px;
+            max-height: 92px;
+            width: 160px;
+            margin-left: -50px;
+            margin-right: -20px;
+        }
+
+        .navbar-left a,
+        .navbar-center a {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .navbar-left a:hover,
+        .navbar-center a:hover {
+            color: red;
+        }
+
+        /* ESTILOS ORIGINAIS */
+        body {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: rgb(255, 252, 252);
+            background-color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrapper {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        main {
+            background-color: rgb(143, 20, 20);
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 900;
+            color: rgb(241, 239, 239);
+            text-align: center;
+        }
+
+        section.module p {
+            margin-bottom: 40px;
+        }
+
+        section.module:last-child {
+            margin-bottom: 0;
+        }
+
+        section.module h2 {
+            margin-bottom: 40px;
+            font-size: 30px;
+        }
+
+        section.module.content {
+            padding: 40px 0;
+            background: rgba(124, 23, 23, 0.8);
+        }
+
+        section.module.content .info {
+            background: #1a1d21;
+        }
+
+        section.module.parallax {
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh !important;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        section.module.parallax:after {
+            content: "";
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 8;
+        }
+
+        section.module.parallax-1 {
+            background-image: url(https://static.wikia.nocookie.net/valorant/images/7/70/Featured_Store.png/revision/latest?cb=20230808110307);
+        }
+
+        section.module.parallax-2 {
+            background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/42a5d38c0bd9bb45010cf6fb986d46bb497fe09f-1920x1080.jpg?auto=format&fit=fill&q=80&w=1480);
+        }
+
+        section.module.parallax-3 {
+            background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/15866c94819fd81c40874dea1a9addda1fa36cbc-1920x1080.jpg);
+        }
+
+        section.module.parallax-4 {
+            background-image: url(https://noticias.maisesports.com.br/wp-content/uploads/2021/06/como-comprar-skins-valorant-1.jpg);
+        }
+
+        section.module.parallax-5 {
+            background-image: url(https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/79d63f5c419ddb4929c6f626662e6250ef293858-1920x1080.jpg?auto=format&fit=fill&q=80&w=1480);
+        }
+
+        section.module.parallax-6 {
+            background-image: url(https://cdn.prod.website-files.com/63f78322305db10494a5538f/668720a348de2b6d42e24c6d_skins-do-valorant.jpg);
+        }
+
+        .parallax-entre-1-e-2 {
+            background-image: url(https://updateordie.com/wp-content/uploads/2020/08/valorant-couldnt-start-how-to-fix.jpg.webp);
+        }
+
+        section.module.parallax h1 {
+            color: rgb(255, 254, 240);
+            text-align: center;
+            font-family: 78px;
+            z-index: 50;
+            text-transform: uppercase;
+        }
+
+        .armas-section {
+            padding: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .titulo {
+            font-size: 3rem;
+            color: #f6eded;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .arma {
+            background: #1a1a1a;
+            border-left: 5px solid #00bfff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .arma h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .arma p {
+            font-size: 1rem;
+            color: #cccccc;
+            margin: 4px 0;
+        }
+
+        .info {
+            background-color: #1a1d21;
+            border: 2px solid #ff4e58;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 0 10px #ff4e58;
+        }
+
+        .info h2 {
+            font-size: 1.8em;
+            color: #ff4e58;
+        }
+
+        .info p {
+            font-size: 1.1em;
+            color: #e0e0e0;
+        }
+
+        .btn-start {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 25px;
+            background-color: #ff4e58;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.3em;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-start:hover {
+            background-color: #e6444f;
+        }
+
+        .hero-section {
+            position: relative;
+            height: 600px;
+            background-image: url('https://images.contentstack.io/v3/assets/bltb6530b271fddd0b1/blt29d7c4f6bc077e9e/5eb26f54402b8b4d13a56656/agent-background-generic.JPG');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5em;
+            color: white;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            font-family: 'Impact', sans-serif;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .button-wrapper {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn-play-now {
+            background-color: #00FFFF;
+            color: #1a1a1a;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+            position: static;
+        }
+
+        .btn-play-now:hover {
+            background-color: #00E5E5;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            
+            .button-wrapper {
+                margin-top: 20px;
+            }
+            
+            .btn-play-now {
+                font-size: 0.9em;
+                padding: 10px 20px;
+            }
+            
+            .navbar {
+                height: 60px;
+            }
+            
+            .navbar-left .logo {
+                height: 80px;
+                width: 130px;
+                margin-left: -30px;
+            }
+            
+            .navbar-center a {
+                padding: 0 10px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar show">
+        <div class="navbar-left">
+            <img class="logo" src="riot.png" alt="riot">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" height="30" viewBox="0 0 100 100" width="25"><path d="M99.25 48.66V10.28c0-.59-.75-.86-1.12-.39l-41.92 52.4a.627.627 0 00.49 1.02h30.29c.82 0 1.59-.37 2.1-1.01l9.57-11.96c.38-.48.59-1.07.59-1.68zM1.17 50.34L32.66 89.7c.51.64 1.28 1.01 2.1 1.01h30.29c.53 0 .82-.61.49-1.02L1.7 9.89c-.37-.46-1.12-.2-1.12.39v38.38c0 .61.21 1.2.59 1.68z" fill="#fff"></path></svg>
+        </div>
+        <div class="navbar-center">
+ <a href="index.html">Home</a>
+  <a href="historia.html">História</a>
+  <a href="mecanicas.html">Mecânicas de jogo</a>
+  <a href="agentes.html">Agentes</a>
+  <a href="mapas.html">Mapas</a>
+  <a href="modos.html">Modos de jogo</a>
+  <a href="ranque.html">Sistema de ranque</a>
+  <a href="esports.html">Comunidade/eSports</a>
+  <a href="loja.html">Personalização/Loja</a>
+  <a href="dicas.html">Dicas/ferramentas</a>
+        </div>
+    </div>
+
+    
+    <div class="wrapper">
+        <main>
+            <section class="module parallax parallax-1">
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h1>PERSONALIZAÇÃO E LOJA VALORANT: EXPRESSE-SE NO JOGO!</h1>
+                        <div class="button-wrapper">
+                            <a href="https://playvalorant.com/" target="_blank" class="btn-play-now">Jogue Agora</a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <section class="module content">
+                <div class="container">
+                    <h2>Loja Valorant: Seu Centro de Cosméticos</h2>
+                    <h3>Foco na Experiência do Usuário (Exploração/Descoberta)</h3>
+                    <p>
+                        Trazendo skins individuais, arsenais completos e muito mais, a Loja permite que você aprimore seu equipamento no jogo... de forma cosmética, claro. As skins de arma não fornecem nenhum poder adicional, mas quem não ama aquele tapa no visual?
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-entre-1-e-2"></section>
+
+            <section class="module parallax parallax-2">
+                <div class="container">
+                    <h2>Bundles de Armas em Destaque</h2>
+                    <h3>Descubra o Poder dos Pacotes Completos!</h3>
+                    <p>
+                        Os bundles de armas em Valorant são a maneira perfeita de mergulhar em coleções temáticas incríveis, garantindo não apenas skins épicas, mas também chaveiros, cards e sprays que contam uma história. Explore os pacotes mais recentes e entenda por que eles representam o melhor valor para quem busca uma personalização completa e impactante!
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-3"></section>
+
+            <section class="module content">
+                <div class="container">
+                    <h2>Desvendando os Cosméticos: Tipos de Itens e Raridades!</h2>
+                    <p>
+                        A loja de Valorant é um tesouro de opções para personalizar sua experiência! Além das Skins de Armas, você encontrará Chaveiros (Gun Buddies) para adornar suas armas, Cartões de Jogador (Player Cards) para exibir sua identidade, e Sprays para marcar seu território no mapa. As skins de armas são categorizadas por raridade (Select, Deluxe, Premium, Exclusive, Ultra), o que influencia seus preços, efeitos e exclusividade. Entenda cada tipo e saiba exatamente o que buscar para seu loadout perfeito!
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-4"></section>
+
+            <section class="module content">
+                <div class="container">
+                    <h2>Como posso adquirir?</h2>
+                    <p>
+                        Os itens disponíveis na Loja podem ser comprados usando VP, que podem ser adquiridos usando um método de pagamento do mundo real.
+                        Agentes* e Equipamentos de Agente** podem ser habilitados com VP, CK ou Tokens de Habilitação de Agente.
+                    </p>
+                </div>
+            </section>
+
+            <section class="module parallax parallax-6"></section>
+
+            <section class="module content">
+                <div class="container">
+                    <h1>Dúvidas Frequentes sobre a Loja Valorant</h1>
+
+                    <section class="info">
+                        <h2>🎯 Com que frequência a loja de skins se atualiza?</h2>
+                        <p>As ofertas de skins individuais na sua loja pessoal são atualizadas a cada 24 horas. Fique de olho para não perder aquela skin rara!</p>
+                    </section>
+
+                    <section class="info">
+                        <h2>💣 Posso comprar skins diretamente neste site?</h2>
+                        <p>Não, este site é um guia e catálogo completo! Todas as compras de skins e cosméticos devem ser feitas diretamente na loja dentro do jogo Valorant, utilizando Valorant Points (VP).</p>
+                    </section>
+
+                    <section class="info">
+                        <h2>O que são Pontos Radianita (RP) e como os uso?</h2>
+                        <p>Pontos Radianita são usados para evoluir suas skins, desbloqueando variantes de cores, efeitos visuais e animações. Você os ganha principalmente através do Passe de Batalha e contratos de Agentes.</p>
+                    </section>
+
+                    <section class="info">
+                        <h2>⚡Vale a pena comprar bundles ou skins avulsas?</h2>
+                        <p>Bundles geralmente oferecem um melhor custo-benefício e vêm com chaveiros, cards e sprays exclusivos da coleção. Skins avulsas são ideais para quando você busca um item específico que está na sua loja diária.</p>
+                    </section>
+                </div>
+            </section>
+
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>PERSONALIZAÇÃO E LOJA VALORANT: EXPRESSE-SE NO JOGO!</h1>
+                    <div class="button-wrapper">
+                        <a href="https://playvalorant.com/" target="_blank" class="btn-play-now">Jogue Agora</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        let lastScroll = 0;
+        const navbar = document.querySelector('.navbar');
+        const navbarHeight = navbar.offsetHeight;
+        
+        document.body.style.paddingTop = navbarHeight + 'px';
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll <= 10) {
+                
+                navbar.classList.remove('hide');
+                navbar.classList.add('show');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && !navbar.classList.contains('hide')) {
+              
+                navbar.classList.remove('show');
+                navbar.classList.add('hide');
+            } else if (currentScroll < lastScroll && navbar.classList.contains('hide')) {
+             
+                navbar.classList.remove('hide');
+                navbar.classList.add('show');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+      
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
